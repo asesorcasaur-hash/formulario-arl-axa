@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Afiliación ARL AXA Colpatria · Universidad del Rosario</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- ============ PANTALLA DE INGRESO ============ -->
+<div id="vista-login" class="login-box oculto">
+  <img src="logo.png" alt="Casa UR" class="escudo-logo" />
+  <h1>Afiliación ARL AXA Colpatria</h1>
+  <p class="subt">Gestión Humana · Casa UR — Universidad del Rosario</p>
+
+  <div class="panel">
+    <form id="form-login">
+      <div class="campo" style="margin-bottom:14px">
+        <label>Correo institucional</label>
+        <input type="email" id="login-correo" required placeholder="nombre.apellido@urosario.edu.co" />
+      </div>
+      <div class="campo" style="margin-bottom:14px">
+        <label>Contraseña</label>
+        <input type="password" id="login-clave" required minlength="6" />
+      </div>
+      <div id="login-error" class="alerta-caja" style="background:#fbe9ea;border-color:#e6b3ba;color:#a3283a;"></div>
+      <button type="submit" class="primario" style="width:100%;margin-top:6px" id="btn-login">Ingresar</button>
+    </form>
+    <div class="cambiar-modo">
+      <span id="texto-modo">¿No tienes cuenta?</span> <a id="link-modo">Crear una cuenta</a>
+    </div>
+    <div class="cambiar-modo" style="margin-top:6px">
+      <a id="link-olvide-clave">¿Olvidaste tu contraseña?</a>
+    </div>
+  </div>
+</div>
+
+<!-- ============ PANTALLA: ELEGIR NUEVA CONTRASEÑA (tras el link de recuperación) ============ -->
+<div id="vista-nueva-clave" class="login-box oculto">
+  <img src="logo.png" alt="Casa UR" class="escudo-logo" />
+  <h1>Elige tu nueva contraseña</h1>
+  <p class="subt">Este link de recuperación te identificó correctamente. Escribe tu nueva contraseña para continuar.</p>
+
+  <div class="panel">
+    <form id="form-nueva-clave">
+      <div class="campo" style="margin-bottom:14px">
+        <label>Nueva contraseña</label>
+        <input type="password" id="nueva-clave-1" required minlength="6" />
+      </div>
+      <div class="campo" style="margin-bottom:14px">
+        <label>Confirmar nueva contraseña</label>
+        <input type="password" id="nueva-clave-2" required minlength="6" />
+      </div>
+      <div id="nueva-clave-error" class="alerta-caja" style="background:#fbe9ea;border-color:#e6b3ba;color:#a3283a;"></div>
+      <button type="submit" class="primario" style="width:100%;margin-top:6px">Guardar nueva contraseña</button>
+    </form>
+  </div>
+</div>
+
+<!-- ============ APP PRINCIPAL ============ -->
+<div id="vista-app" class="oculto">
+  <div class="top-bar">
+    <div class="marca">
+      <span class="linea-dorada"></span>
+      <span class="top-bar-titulo">Afiliación ARL AXA Colpatria</span>
+    </div>
+    <div class="usuario">
+      <span id="usuario-correo"></span>
+      <button class="link" id="btn-salir">Salir</button>
+    </div>
+  </div>
+
+  <div class="hero-encabezado">
+    <img src="logo.png" alt="Casa UR — Más cerca de ti" class="hero-logo" />
+    <h1>Afiliación ARL AXA Colpatria</h1>
+    <p class="hero-subt">Gestión Humana · Casa UR (Servicios Administrativos y Tecnológicos)</p>
+  </div>
+
+  <details class="guia-rapida" open>
+    <summary>Guía rápida — ¿qué debo hacer?</summary>
+    <div class="guia-rapida-contenido">
+      <p class="guia-intro">
+        Registra a los estudiantes en práctica para su afiliación a la ARL AXA Colpatria, de forma manual
+        o cargando un archivo de Excel. Sigue estos pasos:
+      </p>
+      <div class="guia-pasos">
+        <div class="guia-paso"><span class="guia-num">1</span><p>Dirígete a la pestaña de cargue masivo y ubica el archivo completo que extrajiste previamente de UXXI.</p></div>
+        <div class="guia-paso"><span class="guia-num">2</span><p>Presiona <strong>Guardar</strong> y revisa si el sistema generó alguna novedad por datos mal diligenciados.</p></div>
+        <div class="guia-paso"><span class="guia-num">3</span><p>Corrige lo que corresponda directamente en pantalla y guarda de nuevo.</p></div>
+        <div class="guia-paso"><span class="guia-num">4</span><p>Con el radicado que se genera, reporta tu caso en <strong>XERTIFLOW</strong>.</p></div>
+      </div>
+      <div class="guia-novedades">
+        <strong>¿Novedades sobre un registro ya cargado?</strong>
+        Si necesitas anular o consultar el estado de una solicitud ya guardada, recuerda comunicarte con
+        Casa UR (Servicios Administrativos y Tecnológicos) indicando el número de radicado.
+      </div>
+    </div>
+  </details>
+
+  <nav class="tabs">
+    <button data-tab="masivo" class="activo">Cargue masivo</button>
+    <button data-tab="registros">Registros y exportación</button>
+  </nav>
+
+  <main>
+
+    <!-- Cargue manual: retirado temporalmente de la interfaz (28/ago). El código en
+         app.js/datos_campos.js se conserva por si se necesita reactivar más adelante. -->
+
+    <!-- ---------- TAB: CARGUE MASIVO ---------- -->
+    <section id="tab-masivo" class="tab-contenido">
+      <div class="panel">
+        <h2>Cargue masivo desde Excel</h2>
+        <p class="desc">Sube acá tu archivo, recuerda que debe tener mínimo estos campos (Tipo de identificación, Identificación empleado, Primer Nombre… hasta Nombre Centro de Práctica). Se validará cada fila antes de guardar.</p>
+        <div class="fila-zona-carga">
+          <div class="indicador-cargue">
+            <span>Sube tu archivo aquí</span>
+            <svg width="46" height="36" viewBox="0 0 46 36" aria-hidden="true">
+              <path d="M42 4 C 42 22, 26 30, 6 30" stroke="#9c1f34" stroke-width="2.5" fill="none" />
+              <path d="M14 24 L 5 31 L 13 34" stroke="#9c1f34" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <label class="zona-carga" id="zona-carga">
+            <input type="file" id="input-archivo-masivo" accept=".xlsx,.xls" />
+            <div><strong>Haz clic o arrastra aquí tu archivo .xlsx</strong></div>
+            <div style="font-size:12px;margin-top:6px">Se aceptan archivos con las columnas de la plantilla oficial</div>
+          </label>
+        </div>
+        <div id="resultado-masivo" class="oculto" style="margin-top:22px">
+          <div id="alerta-resumen-masivo" class="alerta-caja visible" style="margin-bottom:16px"></div>
+          <div class="resumen-carga">
+            <div class="item"><div class="num" id="resumen-total">0</div><div class="lbl">Filas leídas</div></div>
+            <div class="item"><div class="num" id="resumen-validas" style="color:#2f7a4f">0</div><div class="lbl">Válidas</div></div>
+            <div class="item"><div class="num" id="resumen-invalidas" style="color:#a3283a">0</div><div class="lbl">Con errores</div></div>
+          </div>
+          <div class="tabla-scroll">
+            <table class="tabla-datos" id="tabla-masivo"></table>
+          </div>
+          <datalist id="lista-departamentos"></datalist>
+          <datalist id="lista-ciudades"></datalist>
+          <datalist id="lista-ocupaciones"></datalist>
+          <div class="acciones-form">
+            <button type="button" class="secundario" id="btn-cancelar-masivo">Cancelar</button>
+            <button type="button" class="primario" id="btn-guardar-masivo">Guardar filas válidas</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---------- TAB: REGISTROS / EXPORTAR ---------- -->
+    <section id="tab-registros" class="tab-contenido oculto">
+      <div class="panel">
+        <h2>Registros cargados</h2>
+        <p class="desc">Selecciona los registros que vas a reportar a AXA Colpatria y descarga el archivo plano (.txt) o la plantilla Excel.</p>
+        <div id="ultimo-cargue" class="alerta-caja" style="background:#eef0f6;border-color:#c7cce0;color:#3c4a8a;margin-bottom:14px"></div>
+        <div class="filtro-fila">
+          <select id="filtro-estado">
+            <option value="">Todos los estados</option>
+            <option value="cargado">Cargado</option>
+            <option value="exportado">Exportado</option>
+            <option value="anulado">Anulado</option>
+          </select>
+          <select id="filtro-lote" title="Al elegir un lote, se selecciona automáticamente todo el paquete">
+            <option value="">Todos los lotes</option>
+          </select>
+          <input type="text" id="filtro-texto" placeholder="Buscar por radicado, nombre o identificación…" />
+          <button class="secundario" id="btn-refrescar">Actualizar</button>
+          <span id="contador-seleccion" style="font-size:12.5px;color:var(--gris-texto);margin-left:auto"></span>
+        </div>
+        <p class="desc" style="margin-top:-8px">💡 Tip: elige un <strong>lote</strong> del desplegable para seleccionar de una vez todo ese paquete cargado, sin marcarlo uno por uno.</p>
+        <div class="tabla-scroll">
+          <table class="tabla-datos" id="tabla-registros"></table>
+        </div>
+        <div class="acciones-form">
+          <button type="button" class="secundario" id="btn-exportar-xlsx">Descargar plantilla Excel</button>
+          <button type="button" class="primario" id="btn-exportar-txt">Descargar .txt para Colpatria</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div class="pie-pagina">Universidad del Rosario · Herramienta interna Gestión Humana / Casa UR</div>
+</div>
+
+<div id="toast" class="toast oculto"></div>
+
+<div id="modal-confirmacion" class="modal-fondo oculto">
+  <div class="modal-caja">
+    <div class="modal-icono">✓</div>
+    <h2>Registro guardado</h2>
+    <p>El estudiante quedó cargado correctamente. Este es su número de radicado:</p>
+    <div class="modal-radicado" id="modal-radicado-texto">GH-2026-000000</div>
+    <p style="font-size:12.5px;background:#f6f1e8;border-radius:6px;padding:10px 12px;text-align:left;color:#5c5650">
+      ⚠️ Recuerda <strong>radicar el caso</strong> indicando el consecutivo generado, a través del
+      <strong>Portal de Servicios</strong>: <a href="https://portalservicios.urosario.edu.co" target="_blank" rel="noopener">portalservicios.urosario.edu.co</a>
+    </p>
+    <div class="modal-acciones">
+      <button class="secundario" id="btn-copiar-radicado">Copiar radicado</button>
+      <button class="primario" id="btn-cerrar-modal">Aceptar</button>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="config.js"></script>
+<script src="datos_campos.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
